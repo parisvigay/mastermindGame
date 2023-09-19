@@ -18,7 +18,7 @@ header {
 #mainBoard {
     height: 900px;
     width: 500px;
-    background-color: bisque;
+    background-color: blanchedalmond;
     border: solid;
     display: flex;
     justify-content: center;
@@ -49,8 +49,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-
+    justify-content: flex-start;
 }
 
 #holes {
@@ -62,7 +61,7 @@ header {
 #colorBoardHoles {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .colorHole {
@@ -74,28 +73,80 @@ header {
 }
 
 .ch0 {
-    background-color: red
+    background-color: #DC143C
+}
+
+.ch0:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: #C41E3A
 }
 
 .ch1 {
+    background-color: #89CFF0
+}
+
+.ch1:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
     background-color: deepskyblue
 }
 
 .ch2 {
-    background-color: yellow;
+    background-color: #FFEA00;
+}
+
+.ch2:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: #FDDA0D
 }
 
 .ch3 {
-    background-color: hotpink;
+    background-color: #FAA0A0;
+}
+
+.ch3:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: palevioletred
 }
 
 .ch4 {
-    background-color: lawngreen;
+    background-color: #0BDA51;
+}
+
+.ch4:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: #4CBB17;
 }
 
 .ch5 {
-    background-color: blueviolet;
+    background-color: darkorchid;
     margin-bottom: 15px;
+}
+
+.ch5:hover {
+    margin-bottom: 15px;
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: purple;
+}
+
+button#newGame {
+    order: -1;
+    margin-bottom: auto;
+    margin-top: 200px;
+    font-size: 20px;
+    height: 50px;
+    background-color: blanchedalmond;
+}
+
+button#newGame:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: bisque;
 }
 
 #solutionHoles {
@@ -103,6 +154,7 @@ header {
     gap: 15px;
     padding-bottom: 30px;
     padding-top: 15px;
+    order: 1;
 }
 
 #solutionHoles > div {
@@ -116,7 +168,7 @@ header {
 .holeLine {
     display: flex;
     gap: 15px;
-    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .holeLine > div {
@@ -140,12 +192,12 @@ header {
 .indicatorHoleLine {
     display: flex;
     gap: 5px;
-    padding-bottom: 25px;
+    padding-top: 40px;
 }
 
 #indicatorBoardHoles {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 25px;
 }
