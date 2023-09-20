@@ -30,11 +30,32 @@ generateRandomColors(colors);
 
 const playerGuesses = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]];
 
+let currentHoleIndex = 0;
+
 function chosenColor(event) {
-    document.getElementById("hole0").style.backgroundColor = (event.target.value);
-    playerGuesses[0].splice(0, 1, event.target.value)
-    console.log(playerGuesses[0]);
-}
+    // document.getElementById("hole0").style.backgroundColor = (event.target.value);
+    // console.log(playerGuesses[0]);
+
+    const currentHoleId = `hole${currentHoleIndex}`;
+    const currentHoleElement = document.getElementById(currentHoleId);
+
+    for (let i = 0; i < playerGuesses.length; i++) {
+        for (let j = 0; j < playerGuesses[i].length; j++){
+            if (playerGuesses[i][j]===0) {
+            playerGuesses[i][j] = event.target.value;                 // How can I stop it from filling all arrays,        
+            console.log(playerGuesses[0]);                            // not just one?    
+            currentHoleElement.style.backgroundColor = event.target.value;
+            break; 
+            } 
+        }
+    }
+      currentHoleIndex++;     
+      if (currentHoleIndex >= 31) {
+        currentHoleIndex = 0;
+    }
+}  
+
+
 
 
 //Guess array of 8 arrays - query selector all
@@ -44,3 +65,6 @@ function chosenColor(event) {
 // update player guesses variable to a colour string
 // if guess position = 3, increase guess number by 1
 // guess number effects which purple array. guess position is the individual value
+
+//function finds first available 0 - replace the 0 and break the function
+//loop through arrays

@@ -149,6 +149,18 @@ button#newGame:hover {
     background-color: bisque;
 }
 
+button#submit {
+    order: -1;
+    margin-bottom: 50px;
+    font-size: 15px;
+    height: 30px;
+}
+
+button#submit:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+}
+
 #solutionHoles {
     display: flex;
     gap: 15px;
