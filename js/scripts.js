@@ -1,13 +1,10 @@
-// state variables
-// let mainBoard; // 8 rows of holes plus one row of solution holes
-// let winner; // Null = didn't work out solution; Winner = did work out solution
-// let solutionHoles; // Will reveal sedret colours once player has had 8 tries and/or won 
-
 let colors  = ['#DC143C', '#89CFF0', '#FFEA00', '#FAA0A0', '#0BDA51', 'darkorchid'];
 
 let guessNumber = 0;
 
 let guessPosition = 0;
+
+let solution =[];
 
 //Generates a random combo of colors
 function generateRandomColors(colors) {
@@ -15,7 +12,6 @@ function generateRandomColors(colors) {
    let b = colors[Math.floor(Math.random() * colors.length)];
    let c = colors[Math.floor(Math.random() * colors.length)];
    let d = colors[Math.floor(Math.random() * colors.length)];
-    let solution = [];
     solution.push(a);
     solution.push(b);
     solution.push(c);
@@ -28,43 +24,45 @@ function generateRandomColors(colors) {
 }
 generateRandomColors(colors);
 
+
 const playerGuesses = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]];
 
 let currentHoleIndex = 0;
 
 function chosenColor(event) {
-    // document.getElementById("hole0").style.backgroundColor = (event.target.value);
-    // console.log(playerGuesses[0]);
-
     const currentHoleId = `hole${currentHoleIndex}`;
     const currentHoleElement = document.getElementById(currentHoleId);
-
-    for (let i = 0; i < playerGuesses.length; i++) {
-        for (let j = 0; j < playerGuesses[i].length; j++){
+    let flag = 0;
+    for (let i = 0; i < playerGuesses.length && flag === 0; i++) {
+        for (let j = 0; j < playerGuesses[i].length && flag === 0; j++){
             if (playerGuesses[i][j]===0) {
-            playerGuesses[i][j] = event.target.value;                 // How can I stop it from filling all arrays,        
-            console.log(playerGuesses[0]);                            // not just one?    
-            currentHoleElement.style.backgroundColor = event.target.value;
-            break; 
+            playerGuesses[i][j] = event.target.value;     // How can I stop it from filling all arrays,        
+            console.log(playerGuesses[i]);                // not just one?  I need to link the submit button to it moving onto hole line 2, etc.
+            currentHoleElement.style.backgroundColor = event.target.value; 
+            flag = 1
+            console.log(j, playerGuesses[i].length);
+            if (j === 3) {
+                const disableColors = document.querySelectorAll(".colorHole")
+                disableColors.forEach(function(color){
+                color.disabled = true;})
+            }
+            colorCompare(i, j);
             } 
         }
     }
       currentHoleIndex++;     
-      if (currentHoleIndex >= 31) {
+      if (currentHoleIndex >= 32) {
         currentHoleIndex = 0;
     }
 }  
 
-
-
-
-//Guess array of 8 arrays - query selector all
-//for each - click event - next available 0 (1 is already assigned)
-
-// guess position, change index in playerGuesses array to chosen colour. Update the class of the individual hole with selected colour.
-// update player guesses variable to a colour string
-// if guess position = 3, increase guess number by 1
-// guess number effects which purple array. guess position is the individual value
-
-//function finds first available 0 - replace the 0 and break the function
-//loop through arrays
+function colorCompare(i, j) {
+     if (playerGuesses[i][j]===solution[j]) {
+        console.log("right colour, right place");
+    }
+    else if (solution.includes (playerGuesses[i][j]))
+        console.log("Right colour, wrong place");
+    else {
+        console.log("Wrong");
+    }
+}
