@@ -11,6 +11,30 @@ header {
     margin-top: 10px;
 }
 
+section#rulesContainer {
+    display: none;
+}
+
+button#close {
+    font-family: "kanit";
+    font-size: 12px;
+    height: 30px;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+button#close:hover {
+    transform: scale(1.05);
+    transition-delay: 150ms ease-in;
+    border-radius: 5%;
+    background-color: #E5E4E2;
+}
+
+div#rules {
+    font-family: "kanit";
+    font-size: 20px;
+}
+
 #wholeBoard {
     display: flex;
 }
@@ -149,47 +173,103 @@ header {
 
 .ch5 {
     background-color: darkorchid;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
 }
 
 .ch5:hover {
     transform: scale(1.1);
     transition-delay: 150ms ease-in;
     background-color: purple;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
 }
 
 .ch5:disabled {
     background-color: darkorchid;
     transform: scale(1);
+    /* margin-bottom: 15px; */
+}
+
+.ch6 {
+    background-color: orange;
+}
+
+.ch6:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: darkorange;
+}
+
+.ch6:disabled {
+    background-color: orange;
+    transform: scale(1);
+}
+
+.ch7 {
+    background-color: white;
     margin-bottom: 15px;
+}
+
+.ch7:hover {
+    transform: scale(1.1);
+    transition-delay: 150ms ease-in;
+    background-color: #E5E4E2;
+    margin-bottom: 15px;
+}
+
+.ch7:disabled {
+    background-color: white;
+    transform: scale(1);
+    margin-bottom: 15px;
+}
+
+button#gameRules {
+    font-family: "kanit";
+    order: -3;
+    margin-top: 50px;
+    font-size: 18px;
+    height: 35px;
+    border-radius: 5%;
+}
+
+button#gameRules:hover{
+    transform: scale(1.05);
+    transition-delay: 150ms ease-in;
+    border-radius: 5%;
+    background-color: #E5E4E2;
 }
 
 button#newGame {
     order: -1;
     margin-bottom: auto;
-    margin-top: 200px;
-    font-size: 20px;
-    height: 50px;
+    margin-top: 75px;
+    font-size: 22px;
+    height: 55px;
     background-color: blanchedalmond;
+    font-family: "kanit";
+    border-radius: 5%;
 }
 
 button#newGame:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition-delay: 150ms ease-in;
     background-color: bisque;
+    border-radius: 5%;
 }
 
 button#submit {
     order: -1;
     margin-bottom: 50px;
-    font-size: 15px;
-    height: 30px;
+    font-size: 18px;
+    height: 35px;
+    font-family: "kanit";
+    border-radius: 5%;
 }
 
 button#submit:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition-delay: 150ms ease-in;
+    border-radius: 5%;
+    background-color: #E5E4E2;
 }
 
 #solutionHoles {

@@ -1,4 +1,4 @@
-let colors  = ['#DC143C', '#89CFF0', '#FFEA00', '#FAA0A0', '#0BDA51', 'darkorchid'];
+let colors  = ['#DC143C', '#89CFF0', '#FFEA00', '#FAA0A0', '#0BDA51', 'darkorchid', 'white', 'orange'];
 
 let solution =[];
 
@@ -16,7 +16,7 @@ function generateRandomColors(colors) {
     solution.push(b);
     solution.push(c);
     solution.push(d);
-    console.log(solution);
+    // console.log(solution);
 }
 generateRandomColors(colors);
 
@@ -36,10 +36,10 @@ function chosenColor(event) {
         for (let j = 0; j < playerGuesses[i].length && flag === 0; j++){
             if (playerGuesses[i][j]===0) {
             playerGuesses[i][j] = event.target.value;        
-            console.log(playerGuesses[i]);            
+            // console.log(playerGuesses[i]);            
             currentHoleElement.style.backgroundColor = event.target.value; 
             flag = 1
-            console.log(j, playerGuesses[i].length);
+            // console.log(j, playerGuesses[i].length);
             if (j === 3 && flag2 === 0) {
                 const disableColors = document.querySelectorAll(".colorHole")
                 disableColors.forEach(function(color){
@@ -53,8 +53,8 @@ function chosenColor(event) {
     }
     submitButton.addEventListener("click", function(){
         flag2 = 0;
-        console.log(playerGuesses[currentLine]);
-        console.log(solution);
+        // console.log(playerGuesses[currentLine]);
+        // console.log(solution);
         const disableColors = document.querySelectorAll(".colorHole")
         if (playerGuesses[currentLine].toString() === solution.toString()) {
             console.log("You win");
@@ -94,5 +94,24 @@ function colorCompare(i, j) {
 })
 }
 
+function show() {
+    const gameRulesButton = document.getElementById("gameRules");
+    gameRulesButton.addEventListener("click", function() {    
+            document.getElementById("rulesContainer").style.display = "block";
+        }
+    )
 
-// Make solution holes reveal solution if player guesses correctly
+}
+
+show();
+
+function close() {
+    const closeButton = document.getElementById("close");
+    closeButton.addEventListener("click", function() {    
+            document.getElementById("rulesContainer").style.display = "none";
+        }
+    )
+
+}
+
+close();

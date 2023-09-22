@@ -10,8 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Open+Sans:wght@300&family=Poiret+One&display=swap" rel="stylesheet">
 </head>
 <body>
+    <section id="rulesContainer">
+        <button id="close">CLOSE</button>
+        <div id="rules"> The computer has randomly generated a secret combination of 4 colours. You must guess the combination in 8 or fewer tries to win. Make your guesses from the choice of colours on the left-hand side,
+            then submit. Each time you submit a guess, the indicators on the right-hand side will let you know how close you were.
+            Green indicates that your peg is the right color in the right position. Yellow indicates that your peg is the right color in the wrong position.
+            If your guess indicates 4 out 4 green, within 8 tries, you win.
+        </div>    
+    </section>
+    
     <header id="header">MASTERMIND</header>
-
     <section id="wholeBoard">
         <section id="mainBoard">
             <section id="holes">
@@ -131,14 +139,16 @@
                 <button class="colorHole ch2" onClick="chosenColor(event)" value = "#FFEA00"></button>
                 <button class="colorHole ch3" onClick="chosenColor(event)" value = "#FAA0A0"></button>
                 <button class="colorHole ch4" onClick="chosenColor(event)" value = "#0BDA51"></button> 
-                <button class="colorHole ch5" onClick="chosenColor(event)" value = "darkorchid"></button> 
+                <button class="colorHole ch5" onClick="chosenColor(event)" value = "darkorchid"></button>
+                <button class="colorHole ch6" onClick="chosenColor(event)" value = "orange"></button> 
+                <button class="colorHole ch7" onClick="chosenColor(event)" value = "white"></button>  
             </section> 
             <button id="newGame" onclick="location.reload()">NEW GAME</button> 
             <button id="submit">SUBMIT</button> 
+            <button id="gameRules" onclick="show()">GAME RULES</button>
         </section>
     </section>
 
-   
     <script src="./js/scripts.js"></script>
 </body>
 </html>
